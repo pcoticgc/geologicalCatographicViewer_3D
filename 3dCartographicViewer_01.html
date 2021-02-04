@@ -110,7 +110,13 @@
                 document.getElementById("section__Widgets--view_2d_3d--2d").style.display = "block";
                 map.easeTo({ pitch: 70 });
             }
-        map.on('mouseup', function (e) { 
+
+/* 
+            class View_3d_2D {
+                constructor(event)
+
+            } */
+        map.on('mouseup', function (event) { 
             if(map.getPitch()!= 0)
             {
                 document.getElementById("section__Widgets--view_2d_3d--3d").style.display = "none";
