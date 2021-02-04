@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>ICGC cartographic geological viewer 3D</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<link rel="shourtcut icon" href="./images/logoIcgcCutOpt.svg" type="image/x-icon">
+<link rel="stylesheet" href="./css/3dCartographicViewer.css" type="text/css"/>
+<!-- Mapbox libraries -->
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css" rel="stylesheet" />
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css"/>
+<!--MapBox v2 does not work with the inspect. For the moment. 
+    <script src='https://mapbox-gl-inspect.lukasmartinelli.ch/dist/mapbox-gl-inspect.min.js'></script>
+<link href='https://mapbox-gl-inspect.lukasmartinelli.ch/dist/mapbox-gl-inspect.css' rel='stylesheet' />  -->
+<!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+<!--The googleChart library.-->
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<!-- Jquery libraries -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+</head>
+<body>
+    <div id="map" class="map" ></div>
+    <!-- section__Tools <<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+    <section class="section__Tools">
+        <svg viewBox="0 0 650 650" xmlns="http://www.w3.org/2000/svg">
+            <g transform="matrix(.87019 0 0 .87019 106.96 106.57)" fill="#2a2a2a">
+                <path d="m511.12 77.251c-0.806-5.625-4.717-10.313-10.107-12.114-5.361-1.816-11.323-0.396-15.352 3.618l-21.211 21.226c-11.338 11.338-31.099 11.338-42.437 0-11.732-11.732-11.726-30.698 0-42.422l21.211-21.211c4.014-4.014 5.42-9.961 3.618-15.352s-6.489-9.302-12.114-10.107c-27.993-3.955-56.323 5.449-76.348 25.444-22.646 22.661-31.582 55.972-23.306 86.953l-221.78 221.77-0.015-0.015c-30.864-8.188-64.365 0.747-86.938 23.32-19.893 19.893-29.414 48.443-25.459 76.362 0.806 5.625 4.717 10.313 10.107 12.114 5.347 1.802 11.323 0.396 15.352-3.618l21.211-21.226c11.338-11.338 31.099-11.338 42.437 0 11.732 11.73 11.726 30.696 0 42.422l-21.211 21.211c-4.014 4.014-5.42 9.961-3.618 15.352s6.489 9.302 12.114 10.107c27.92 3.973 56.014-5.129 76.348-25.444 22.646-22.661 31.582-55.972 23.306-86.953l221.78-221.77 0.015 0.015c31.025 8.218 64.365-0.747 86.938-23.32 19.893-19.893 29.414-48.442 25.459-76.362z"/>
+                <path d="m422 332c-7.104 0-14.414 1.069-22.998 3.34l-58.138-58.131-63.653 63.646 58.129 58.133c-2.271 8.598-3.34 15.908-3.34 23.012 0 49.629 40.371 90 90 90s90-40.371 90-90-40.371-90-90-90zm49.219 86.997-8.921 33.281c-1.392 5.171-5.435 9.214-10.605 10.605l-33.281 8.921c-4.889 1.348-10.538 0.068-14.487-3.882l-24.36-24.36c-3.794-3.794-5.273-9.316-3.882-14.487l8.921-33.281c1.392-5.171 5.435-9.214 10.605-10.605l33.281-8.921c5.142-1.436 10.679 0.088 14.487 3.882l24.36 24.36c3.794 3.794 5.273 9.316 3.882 14.487z"/>
+                <path d="m176.9 112.44c8.276-30.981-0.66-64.306-23.306-86.953-33.999-33.984-93.311-33.984-127.28 0-35.083 35.098-35.083 92.197 0 127.28 22.544 22.544 55.928 31.611 86.953 23.306l57.88 58.708 63.642-63.635zm-39.229-27.817-8.921 33.281c-1.392 5.171-5.435 9.214-10.605 10.605l-33.281 8.921c-4.889 1.348-10.538 0.068-14.487-3.882l-24.36-24.36c-3.794-3.794-5.273-9.316-3.882-14.487l8.921-33.281c1.392-5.171 5.435-9.214 10.605-10.605l33.281-8.921c5.171-1.406 10.693 0.088 14.487 3.882l24.36 24.36c3.794 3.794 5.273 9.316 3.882 14.487z"/>
+            </g>
+        </svg>
+        <div class = "section__Tools__Div">
+        
+        </div>
+    </section>
+    <!-- section__Tools <<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+    <!-- section__Widgets <<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+    <section class="section__Widgets">
+        <!-- <div id="search_Image" class="search_Image"> -->
+        <div id="section__Widgets--search" class="section__Widgets--search"></div>
+        <div id="section__Widgets--cNavigation" class="section__Widgets--cNavigation"></div>
+        <div id="section__Widgets--geo" class="section__Widgets--geo"></div>
+        <div class="section__Widgets--view_2d_3d" >
+            <svg class="section__Widgets--view_2d_3d--2d" id="section__Widgets--view_2d_3d--2d" onclick="disableEnable_2d()" viewBox="0 0 650 650">
+                <g stroke-width="9.9825" aria-label="2D">
+                    <path d="m121.93 429.33h137.45v33.145h-184.83v-33.145q22.422-23.202 61.026-62.196 38.799-39.189 48.743-50.498 18.912-21.252 26.321-35.875 7.6039-14.818 7.6039-29.051 0-23.202-16.378-37.824-16.183-14.623-42.309-14.623-18.522 0-39.189 6.434-20.472 6.434-43.869 19.497v-39.774q23.786-9.5536 44.453-14.428 20.667-4.8743 37.824-4.8743 45.233 0 72.139 22.617 26.906 22.617 26.906 60.441 0 17.937-6.824 34.12-6.629 15.988-24.371 37.824-4.8743 5.6542-31 32.755-26.126 26.906-73.699 75.454z"/>
+                    <path d="m377.93 203.75v226.36h47.573q60.246 0 88.127-27.296 28.076-27.296 28.076-86.177 0-58.491-28.076-85.592-27.881-27.296-88.127-27.296zm-39.384-32.365h80.913q84.617 0 124.2 35.29 39.579 35.095 39.579 109.96 0 75.259-39.774 110.55-39.774 35.29-124 35.29h-80.913z"/>
+                </g>
+            </svg>
+            <svg class="section__Widgets--view_2d_3d--3d" id="section__Widgets--view_2d_3d--3d" onclick="disableEnable_3d()" viewBox="0 0 650 650">
+                <g stroke-width="9.9825" aria-label="3D">
+                    <path d="m207.33 305.52q28.271 6.0441 44.063 25.151 15.988 19.107 15.988 47.183 0 43.089-29.636 66.68t-84.228 23.592q-18.327 0-37.824-3.7044-19.302-3.5095-39.969-10.723v-38.019q16.378 9.5536 35.875 14.428 19.497 4.8743 40.749 4.8743 37.045 0 56.347-14.623 19.497-14.623 19.497-42.504 0-25.736-18.132-40.164-17.937-14.623-50.108-14.623h-33.925v-32.365h35.485q29.051 0 44.453-11.503 15.403-11.698 15.403-33.535 0-22.422-15.988-34.315-15.793-12.088-45.428-12.088-16.183 0-34.705 3.5095-18.522 3.5095-40.749 10.918v-35.095q22.422-6.2391 41.919-9.3586 19.692-3.1195 37.045-3.1195 44.843 0 70.97 20.472 26.126 20.277 26.126 54.982 0 24.176-13.843 40.944-13.843 16.573-39.384 23.007z"/>
+                    <path d="m377.93 203.75v226.36h47.573q60.246 0 88.127-27.296 28.076-27.296 28.076-86.177 0-58.491-28.076-85.592-27.881-27.296-88.127-27.296zm-39.384-32.365h80.913q84.617 0 124.2 35.29 39.579 35.095 39.579 109.96 0 75.259-39.774 110.55-39.774 35.29-124 35.29h-80.913z"/>
+                </g>
+               </svg>
+        </div>
+        <!-- <div id="inspect" class="inspect"></div> -->
+    </section> 
+    <!-- section__Widgets <<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+
+    
+        <div class="widgetCameraHeight" id="widgetCameraHeight"></div>
+        <div class="widgetCoordinates" id="widgetCoordinates"></div>
+        <div class="info" id="info"></div>
+    
+
+    <div class="chart__Div" id="chart__Div">
+        <div class="chart__Div__Title" id="chart__Div__Title">
+            <div class="chart__Div__Title_Close" id="chart__Div__Title_Close" onclick="closeX()"><span>X</span></div>   
+        </div>  
+        <div class="chart__Div__View" id="chart__Div__View"></div>
+    </div>
+    
+    <!-- <div class="projects__Div">
+        <input class="projects__Div_Input" list="projects" name="listCropBeds" />
+
+        <datalist  class="projects__Div__Datalist" id="projects">
+            <option value="Interferometria"></option>
+            <option value="aqüífers"></option>
+            <option value="Illa calor"></option>
+            <option value="Contaminació lumínica"></option>
+        </datalist>
+    </div> --> 
+    <!-- <section class="section__Widgets">
+        <div id="search_Image" class="search_Image"></div>
+        <div id="search" class="search"></div>
+        <div id="controlNavigation" class="controlNavigation"></div>
+        <div id="geolocate" class="geolocate"></div>
+        <div id="inspect" class="inspect"></div>
+    </section> -->
+
+    <script src="./js/terrain.js"></script>
+    <script src="./js/widgets.js"></script>
+    <script src="./js/points.js"></script>
+    <script src="./js/chart.js"></script>
+    <!-- <script src="./js/view_2d_3d.js"></script> -->
+
+    <script>
+        function disableEnable_2d(){
+                document.getElementById("section__Widgets--view_2d_3d--3d").style.display = "block";
+                document.getElementById("section__Widgets--view_2d_3d--2d").style.display = "none";
+                map.easeTo({ pitch: 0 });
+        }
+        function disableEnable_3d(){
+                document.getElementById("section__Widgets--view_2d_3d--3d").style.display = "none";
+                document.getElementById("section__Widgets--view_2d_3d--2d").style.display = "block";
+                map.easeTo({ pitch: 70 });
+            }
+        
+    </script>
+</body>
+
+</html>
