@@ -1,0 +1,190 @@
+:root {
+    /* Colors */
+    --backgroundColorHeader: #2a2a2a;
+    --backgroundColorFooter: #333;
+    --colorTextHardGrey:rgb(112, 112, 112);
+    --colorTextSoftGrey: #ccc;
+    --colorTextSoftBlue: #337ab7;;
+    --blue: #0078f2;
+    --backgroundButtons: #fff;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+}
+ html, body {
+    font-size: 62.5%;
+    background-color:var(--backgroundColorHeader);  
+    overflow: hidden; 
+    
+} 
+.map {
+    width: 100vw;
+    height: 100vh;
+}
+
+/* section__Tools <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+.section__Tools {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px; 
+}
+.section__Tools:hover {
+    background-color:var(--colorTextSoftGrey); 
+    cursor: pointer;
+}
+.section__Tools svg {
+    width: 50px;
+}
+.section__Tools__Div {
+    position: absolute;
+    top: 0px;
+    left: -10px;
+    width: 10vw;
+    height: 92vh;
+    background-color: rgba(136, 136, 136, 0.609);
+}
+
+/* section__Tools <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+/* section__Widgets <<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+.section__Widgets {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px; 
+    float:right;  
+}
+/* .section__Widgets div{
+    margin-top: 5px;
+    float:right;
+} */
+/* value mapbox-gl.css */
+.mapboxgl-ctrl-geocoder {
+    width: 50px !important;
+    max-width: 210px !important;
+    min-width: 210px !important;
+}
+.section__Widgets--search {
+    float:right;
+    margin-bottom: 5px;
+}
+.section__Widgets--geo {
+    margin-top: 5px;
+}
+.section__Widgets--view_2d_3d {
+    margin-top: 5px;
+    float:left;
+    width: 29px;
+    height: 29px;
+    border-radius: 2px; 
+    background-color:var(--backgroundButtons); 
+}
+.section__Widgets--view_2d_3d svg:first-child {
+    display: none;
+}
+.section__Widgets--view_2d_3d:hover {
+    background-color:var(--colorTextSoftGrey); 
+    cursor: pointer;
+}
+/* section__Widgets <<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+/* widgetCameraHeight <<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+.widgetCameraHeight {
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    width: 70px;
+    height: 29px;
+    background-color:var(--backgroundButtons); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px; 
+}
+/* value mapbox-gl.css */
+.mapboxgl-ctrl-scale {
+    background-color:var(--backgroundButtons)!important; 
+    font-size: 1.5rem !important;
+    border: none!important;
+    padding: 0px!important;
+    width: 60px!important;
+    margin-left: 10px;
+}
+/* widgetCameraHeight <<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+
+/* section__coordinates <<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+.widgetCoordinates {
+    position: absolute;
+    bottom: 30px;
+    right: 10px;
+    width: 215px;
+    height: 46px;
+    background-color:var(--backgroundButtons); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px; 
+    padding-left: 8px;
+}
+
+/* section__coordinates <<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+/* .projects__Div {
+    display: grid;
+    position: absolute; 
+    top: 10px;
+    left: 10px;
+    width: 210px;
+    height: 40px;
+    background-color: var(--backgroundColorHeader);
+    z-index: 100;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+} */
+/*.projects__Div_Input {
+    width: 200px;
+    height: 30px;
+    align-self: center;
+    justify-self: center;
+}
+ */
+.chart__Div {
+    position: absolute;
+    left: 10px;
+    bottom: 120px;
+    width: 98vw;
+    height: 20vh;
+    background: rgba(255, 255, 255, 0.6);
+    display: none;   
+}
+.chart__Div__Title {
+    width: 98vw;
+    height: 30px;
+    background: #3887be;
+    display: grid;
+    justify-items:right;
+    align-items: center;
+}
+.chart__Div__Title_Close {
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+.chart__Div__Title_Close span {
+    font-size: 40px;
+    font-size: 20px;
+}
+.chart__Div__Title_Close span:hover {
+    cursor: pointer;
+}
+
+
+
