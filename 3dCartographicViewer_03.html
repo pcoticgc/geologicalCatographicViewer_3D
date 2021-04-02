@@ -97,20 +97,30 @@
           <path d="m311.59 548.74q-22.057 0-37.711-15.298-15.298-15.654-15.298-37.711v-209.9q0-22.057 15.654-37.711 16.009-15.654 37.355-15.654h0.71153q21.346 0 36.999 15.654t15.654 37.711v209.9q0 22.057-15.654 37.711t-36.999 15.298zm49.095-400.59q0 23.125-16.365 39.134-16.009 16.009-38.422 16.009-22.769 0-38.422-16.009-15.654-16.009-16.009-39.134 0-23.125 16.009-38.778 15.654-16.009 38.422-15.654 22.057 0 38.422 15.298 16.365 15.654 16.365 39.134z" stroke-width="18.215" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal"/>
         </g>
       </svg>
+      <svg class="section__Widgets--BackgroundMap" id="section__Widgets--BackgroundMap"viewBox="0 0 650 650">
+        <g transform="matrix(1.8871 0 0 2.06 47.852 24.525)">
+          <g fill="#010002">
+           <path d="m289.44 79.226-135.78-60.547c-3.291-1.474-7.054-1.474-10.356 0l-135.78 60.547c-4.427 1.974-7.354 6.315-7.522 11.161s2.431 9.377 6.712 11.661l135.78 72.405c1.871 1.006 3.932 1.496 5.983 1.496 2.061 0 4.112-0.495 5.994-1.496l135.78-72.405c4.281-2.284 6.886-6.81 6.712-11.661s-3.095-9.186-7.522-11.161zm-140.96 69.61-106.85-56.98 106.85-47.646 106.86 47.646z"/>
+           <path d="m278.28 133.4-129.79 69.228-129.79-69.228c-6.217-3.318-13.908-0.968-17.198 5.232-3.302 6.201-0.968 13.897 5.227 17.198l135.78 72.421c1.871 1.001 3.932 1.496 5.983 1.496 2.061 0 4.112-0.495 5.994-1.496l135.78-72.421c6.195-3.301 8.528-10.998 5.227-17.198s-10.998-8.544-17.204-5.232z"/>
+           <path d="m278.28 183.06-129.79 69.218-129.79-69.218c-6.217-3.318-13.908-0.957-17.198 5.232-3.302 6.201-0.968 13.897 5.227 17.198l135.78 72.416c1.871 1.001 3.932 1.496 5.983 1.496 2.061 0 4.112-0.495 5.994-1.496l135.78-72.416c6.195-3.301 8.528-10.998 5.227-17.198-3.307-6.19-10.987-8.55-17.204-5.232z"/>
+          </g>
+         </g>
+        </svg>
+      <!-- <div id="section__Widgets--BackgroundMap" class="section__Widgets--BackgroundMap">
+        <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" checked="checked">
+        <label for="satellite-v9">satellite</label>
+        <input id="light-v10" type="radio" name="rtoggle" value="light">
+        <label for="light-v10">light</label>
+        <input id="dark-v10" type="radio" name="rtoggle" value="dark">
+        <label for="dark-v10">dark</label>
+        <input id="streets-v11" type="radio" name="rtoggle" value="streets">
+        <label for="streets-v11">streets</label>
+        <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors">
+        <label for="outdoors-v11">outdoors</label>
+      </div> -->
     </section> 
     <!-- section__Widgets <<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-    <!-- <div id="section__Widgets--BackgroundMap" class="section__Widgets--BackgroundMap">
-      <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" checked="checked">
-      <label for="satellite-v9">satellite</label>
-      <input id="light-v10" type="radio" name="rtoggle" value="light">
-      <label for="light-v10">light</label>
-      <input id="dark-v10" type="radio" name="rtoggle" value="dark">
-      <label for="dark-v10">dark</label>
-      <input id="streets-v11" type="radio" name="rtoggle" value="streets">
-      <label for="streets-v11">streets</label>
-      <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors">
-      <label for="outdoors-v11">outdoors</label>
-    </div> -->
+    
     <div class="widgetCameraHeight" id="widgetCameraHeight"></div>
     <p class="widgetCopyCoordinatesB ">Double click copy the ground coordinates</p>
     <div class="widgetCopyCoordinates" id="widgetCopyCoordinates"></div>
@@ -123,62 +133,17 @@
       <div class="chart__Div__View" id="chart__Div__View"></div>
     </div>
     <!-- section__Chart <<<<<<<<<<<<<<<<<<<<<<<<<<<<-->  
+    <script type="module"  src="./js/index.js"></script>
     
-    <script async src="./js/terrain.js"></script>
-    <script async src="./js/widgets.js"></script>
+    <!-- <script async src="./js/index.js"></script>  -->
+    
+    <!-- <script type="module" async src="./js/terrain.js"></script> -->
+    <!-- <script async src="./js/terrain.js"></script> -->
+   <!--  <script async src="./js/widgets.js"></script>
     <script async src="./js/pointsTest.js"></script>
     <script async src="./js/chart.js"></script>
-    <script async src="./js/classes/classPerspective_3d_2D.js"></script>
-
+    <script async src="./js/classes/classPerspective_3d_2D.js"></script> --> 
     <!-- <script src="./js/view_2d_3d.js"></script> -->
-    <script>
-      
-      $(document).ready(function(){
-        //Ocultamos el menú al cargar la página
-          $("#menu").hide();
-            
-          /* mostramos el menú si hacemos click derecho
-          con el ratón */
-          $(document).bind("auxclick", function(e){
-            if (e.button == 1) {
-              $("#menu").css({'display':'block', 'left':e.pageX, 'top':e.pageY});
-              return false;
-            }
-          });
-            
-            
-          //cuando hagamos click, el menú desaparecerá
-          $(document).click(function(e){
-            if(e.button == 0){
-              $("#menu").css("display", "none");
-            }
-          });
-            
-          //si pulsamos escape, el menú desaparecerá
-          $(document).keydown(function(e){
-            if(e.keyCode == 27){
-              $("#menu").css("display", "none");
-            }
-          });
-            
-          //controlamos los botones del menú
-          $("#menu").click(function(e){
-                  
-            // El switch utiliza los IDs de los <li> del menú
-            switch(e.target.id){
-              case "copiar":
-                alert("copiado!");
-                break;      
-              case "mover":
-                alert("movido!");
-                break;
-              case "eliminar":
-                alert("eliminado!");
-                break;
-            }
-                  
-          });                   
-    });    
-  </script>
+    
 </body>
 </html>

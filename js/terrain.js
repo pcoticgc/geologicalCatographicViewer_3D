@@ -1,5 +1,6 @@
 /* Create map and make style */
 mapboxgl.accessToken = "pk.eyJ1IjoidG9uaWxvZ2FyIiwiYSI6ImNqYjZlamY1dzBtMXEzM3FxbmppeXBpeHoifQ.DbzKh1wtO4p4QOUjj9eg1w";
+
 var map = new mapboxgl.Map({
     container: "map",
     /* style: "https://geoserveis.icgc.cat/contextmaps/icgc.json", */
@@ -8,12 +9,24 @@ var map = new mapboxgl.Map({
     /* style: 'https://tilemaps.icgc.cat/tileserver/styles/orto.json', maxZoom: 19,*/
     style: 'mapbox://styles/mapbox/satellite-v9',
     center: [1.380, 41.25],
+    /* pitchWithRotate: false,
+    dragRotate: false, */
     maxZoom: 25,
     minZoom: 1.65,
     /* pitch: 50, */
     zoom: 8.4
 });
-
+var layerList = document.getElementById('section__Widgets--BackgroundMap');
+var inputs = layerList.getElementsByTagName('input');
+ 
+function switchLayer(layer) {
+var layerId = layer.target.id;
+map.setStyle('mapbox://styles/mapbox/' + layerId);
+}
+ 
+for (var i = 0; i < inputs.length; i++) {
+inputs[i].onclick = switchLayer;
+}
 /* Create DEM */
 map.on('load', function () {
     map.addSource('mapbox-dem', {
@@ -42,3 +55,6 @@ map.getCanvas().style.cursor = 'default';
 map.on('mouseenter', 'clusters', () => {
     map.getCanvas().style.cursor = 'pointer'
   })    
+
+
+  

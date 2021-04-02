@@ -89,6 +89,12 @@ map.on('mousemove', function (e) {
     let lat= e.lngLat.lat;
     let lng= e.lngLat.lng;
     document.getElementById('widgetCoordinates').innerHTML = `Lat: ${lat} Long: ${lng}`;
-    });
+});
+
+map.on('dblclick', function (e) {
+    let lat= e.lngLat.lat;
+    let lng= e.lngLat.lng;
+    document.getElementById('widgetCopyCoordinates').innerHTML = `Lat: ${lat} Long: ${lng}`;
+});
     
     

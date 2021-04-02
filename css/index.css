@@ -1,86 +1,99 @@
 :root {
-    /* Colors */
-    --backgroundColorHeader: #2a2a2a;
-    --backgroundColorFooter: #333;
-    --colorTextHardGrey:rgb(112, 112, 112);
-    --colorTextSoftGrey: #ccc;
-    --colorTextSoftBlue: #337ab7;;
-    --blue: #0078f2;
-    --white: #fff;
+  /* Colors */
+  --backgroundColorHeader: #2a2a2a;
+  --backgroundColorFooter: #333;
+  --colorTextHardGrey:rgb(112, 112, 112);
+  --colorTextSoftGrey: #ccc;
+  --colorTextSoftBlue: #337ab7;;
+  --blue: #0078f2;
+  --backgroundButtons: #fff;
 }
+
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-size: 1rem;
-    font-family: sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+  font-family: sans-serif;
 }
-  html {
-    font-size: 62.5%;
-    background-color:var(--backgroundColorHeader);  
-    overflow: hidden; 
-}
+
+html, body {
+ font-size: 62.5%;
+ background-color:var(--backgroundColorHeader);  
+ overflow: hidden;     
+} 
 
 .map {
-    width: 100vw;
-    height: 100vh;
+ width: 100vw;
+ height: 100vh;
 }
 
-.projects__Div {
-    display: grid;
-    position: absolute; 
-    top: 10px;
-    left: 10px;
-    width: 210px;
-    height: 40px;
-    background-color: var(--backgroundColorHeader);
-    z-index: 100;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-    /* display: none; */
+/* -- section__Tools <<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+.section__Tools {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--backgroundButtons);  
+  border-radius: 5px;
 }
-.projects__Div_Input {
-    width: 200px;
-    height: 30px;
-    align-self: center;
-    justify-self: center;
+.section__Tools:hover {
+  background-color: var(--colorTextSoftGrey); 
+  cursor: pointer;
+}
+/* -- section__Tools <<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+
+/* -- section__Widgets <<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+.section__Widgets {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  grid-template: 40px 40px 40px 40px 40px / 200px 29px ;
+  grid-template-areas: ' Search User '
+                       ' .      CNavigation  '
+                       ' .      Geo  '
+                       ' .      View_2d_3d  '
+                       ' .      Info  ';
+  
+  background-color: red; 
 }
 
-.section__Widgets{
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    width: 30px;   
-}
-.section__Widgets div{
-    margin-top: 5px;
-    float:right
-}
-/* .chart__Div {
-    position: absolute;
-    left: 10px;
-    bottom: 10px;
-    width: 80vw;
-    height: 25vh;
-    background: rgba(255, 255, 255, 0.6);
-    display: none;   
-}
-.chart__Div__Title {
-    width: 80vw;
-    height: 30px;
-    background: #3887be;
-}
-.chart__Div__Title_Close span {
-    font-size: 20px;
-    float: right;
-}
-.chart__Div__Title_Close span:hover {
-    cursor: pointer;
+
+.section__Widgets--User svg{
+  width: 29px;
 }
 
-.chart__Div__Title_Close {
-    margin-right: 20px;
-    float: right;
-    color: white;
-    font-size: 25px;
-    background-color: rgba(0, 0, 0, 0.4);
+.section__Widgets--Search {
+  grid-area: Search;
+  
+}
+.section__Widgets--CNavigation {
+  grid-area: CNavigation;
+  /* position: absolute;
+  top: 30px;
+  right: 0px;
+  margin-bottom: 5px;
+  width: 29px;
+  height: 29px;
+  border-radius: 2px; 
+  background-color:var(--backgroundButtons);  */
+}
+.section__Widgets--Geo {
+  grid-area: Geo;
+}
+
+.section__Widgets--View_2d_3d {
+  grid-area: View_2d_3d;
+}
+.section__Widgets--Info {
+  grid-area: Info;
+}
+/* @media screen and (min-width: 640px){
+.mapboxgl-ctrl-geocoder--input {
+    height: 29px !important;
+    padding: 0px !important;
+}
 } */
+/* -- section__Widgets <<<<<<<<<<<<<<<<<<<<<<<<<<<< */

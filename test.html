@@ -1,142 +1,59 @@
-<html><head>
-    <meta charset="utf-8">
-    <title>Create interactive hover effects with Mapbox GL JS</title>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <meta name="robots" content="noindex, nofollow">
-    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js"></script>
-    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css" rel="stylesheet">
-    <style>
-      body {
-  margin: 0;
-  padding: 0;
-}
 
-#map {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-}
-
-/* // From: Pitch toggle control for Mapbox GL JS — http://fuzzytolerance.info/blog/2017/01/30/Pitch-toggle-control-for-Mapbox-GL-JS/ */
-.mapboxgl-ctrl-pitchtoggle-3d {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCI+ICAgIDx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkeT0iLjM1ZW0iIHN0eWxlPSJmb250LXNpemU6IDE0cHg7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLEFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmOyBmb250LXdlaWdodDogYm9sZDsgdGV4dC1hbmNob3I6IG1pZGRsZTsiPjNEPC90ZXh0Pjwvc3ZnPg==);
-}
-
-.mapboxgl-ctrl-pitchtoggle-2d {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCI+ICAgIDx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkeT0iLjM1ZW0iIHN0eWxlPSJmb250LXNpemU6IDE0cHg7IGZvbnQtZmFtaWx5OiAnSGVsdmV0aWNhIE5ldWUnLEFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmOyBmb250LXdlaWdodDogYm9sZDsgdGV4dC1hbmNob3I6IG1pZGRsZTsiPjJEPC90ZXh0Pjwvc3ZnPg==);
-}
-
-
-    </style>
-  </head>
-
-  <body>
-    <div id="map" class="map" ></div>
-   
-    <script src="./js/terrain.js"></script>
-    <script>
+<html lang="en">
   
-
-// Original ES6 Class— https://github.com/tobinbradley/mapbox-gl-pitch-toggle-control
-// export default class PitchToggle {
-class PitchToggle {
-  constructor({ pitch = 70, minpitchzoom = null }) {
-    this._pitch = pitch;
-    this._minpitchzoom = minpitchzoom;
-  }
-
-  onAdd(map) {
-    this._map = map;
-    let _this = this;
-
-    this._btn = document.createElement("button");
-    this._btn.className = "mapboxgl-ctrl-icon mapboxgl-ctrl-pitchtoggle-3d";
-    this._btn.type = "button";
-    this._btn["aria-label"] = "Toggle Pitch";
-    this._btn.onclick = function() {
-      if (map.getPitch() === 0) {
-        let options = { pitch: _this._pitch };
-        if (_this._minpitchzoom && map.getZoom() > _this._minpitchzoom) {
-          options.zoom = _this._minpitchzoom;
-        }
-        map.easeTo(options);
-        _this._btn.className =
-          "mapboxgl-ctrl-icon mapboxgl-ctrl-pitchtoggle-2d";
-      } else {
-        map.easeTo({ pitch: 0 });
-        _this._btn.className =
-          "mapboxgl-ctrl-icon mapboxgl-ctrl-pitchtoggle-3d";
-      }
-    };
-
-    this._container = document.createElement("div");
-    this._container.className = "mapboxgl-ctrl-group mapboxgl-ctrl";
-    this._container.appendChild(this._btn);
-
-    return this._container;
-  }
-
-  onRemove() {
-    this._container.parentNode.removeChild(this._container);
-    this._map = undefined;
-  }
-}
-
-/* Idea from Stack Overflow https://stackoverflow.com/a/51683226  */
-class MapboxGLButtonControl {
-  constructor({
-    className = "",
-    title = "",
-    eventHandler = evtHndlr
-  }) {
-    this._className = className;
-    this._title = title;
-    this._eventHandler = eventHandler;
-  }
-
-  onAdd(map) {
-    this._btn = document.createElement("button");
-    this._btn.className = "mapboxgl-ctrl-icon" + " " + this._className;
-    this._btn.type = "button";
-    this._btn.title = this._title;
-    this._btn.onclick = this._eventHandler;
-
-    this._container = document.createElement("div");
-    this._container.className = "mapboxgl-ctrl-group mapboxgl-ctrl";
-    this._container.appendChild(this._btn);
-
-    return this._container;
-  }
-
-  onRemove() {
-    this._container.parentNode.removeChild(this._container);
-    this._map = undefined;
-  }
-}
-
-/* Event Handlers */
-function one(event) {
-  alert("Event handler when clicking on \r\n" + event.target.className);
-  console.log("event number 1", event);
-}
-
-function two(event) {
-  alert("Event handler when clicking on \r\n" + event.target.className);
-  console.log("event number 2", event);
-}
-
-function three(event) {
-  alert("Event handler when clicking on \r\n" + event.target.className);
-  console.log("event number 3", event);
-}
-
-
-
-
-map.addControl(new PitchToggle({ minpitchzoom: 11 }), "top-left");
-
-    </script>
-  
-
-</body></html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #contextMenu {
+    position:absolute;
+    width:150px;
+    height:160px;
+    display:none; 
+    padding-left: 15px;
+    padding-top: 10px;
+    color: white;
+    background-color: #2a2a2a;
+    z-index: 500;
+    }
+    #contextMenu span {
+      cursor:pointer;
+    }
+    #closeContextualWindow {    
+      padding-right: 10px;
+    }
+    #closeContextualWindow span{
+      cursor:pointer;
+      background-color: #ff0000;
+      float: right;
+    }
+    #contextMenu a span {
+      color: white;
+      background-color: #444343;
+    }
+  </style>
+</head>
+<body>
+  <div id="contextMenu" > <!-- onclick="this.style.display='none'" -->
+    <div id="closeContextualWindow" onclick="closeContextualMenu()"><span> X </span></div>
+    <span > Copy coordinates</span>
+  </div>
+  <script>
+    function closeContextualMenu() {document.getElementById("contextMenu").style.display = "none"}
+    
+    const showContextMenu = (e)=> {
+      console.log(e.clientX + " e.clientX " + e.clientY + " e.clientY")
+      const contextMenu=document.getElementById("contextMenu");
+      contextMenu.style.transform = e.clientX;
+      contextMenu.style.transform = e.clientY;
+      /* document.getElementById("contextMenu").style.left=e.clientX */
+      contextMenu.style.display="block"; 
+      return false
+    }
+    document.oncontextmenu=showContextMenu;
+    
+  </script>
+</body>
+</html>

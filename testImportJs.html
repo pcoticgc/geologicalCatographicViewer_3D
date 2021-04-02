@@ -99,7 +99,7 @@
       </svg>
     </section> 
     <!-- section__Widgets <<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-    <!-- <div id="section__Widgets--BackgroundMap" class="section__Widgets--BackgroundMap">
+    <div id="section__Widgets--BackgroundMap" class="section__Widgets--BackgroundMap">
       <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" checked="checked">
       <label for="satellite-v9">satellite</label>
       <input id="light-v10" type="radio" name="rtoggle" value="light">
@@ -110,7 +110,7 @@
       <label for="streets-v11">streets</label>
       <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors">
       <label for="outdoors-v11">outdoors</label>
-    </div> -->
+    </div>
     <div class="widgetCameraHeight" id="widgetCameraHeight"></div>
     <p class="widgetCopyCoordinatesB ">Double click copy the ground coordinates</p>
     <div class="widgetCopyCoordinates" id="widgetCopyCoordinates"></div>
@@ -123,62 +123,11 @@
       <div class="chart__Div__View" id="chart__Div__View"></div>
     </div>
     <!-- section__Chart <<<<<<<<<<<<<<<<<<<<<<<<<<<<-->  
-    
+    <script type="module" src="./js/index.js"></script>
     <script async src="./js/terrain.js"></script>
     <script async src="./js/widgets.js"></script>
     <script async src="./js/pointsTest.js"></script>
     <script async src="./js/chart.js"></script>
     <script async src="./js/classes/classPerspective_3d_2D.js"></script>
-
-    <!-- <script src="./js/view_2d_3d.js"></script> -->
-    <script>
-      
-      $(document).ready(function(){
-        //Ocultamos el menú al cargar la página
-          $("#menu").hide();
-            
-          /* mostramos el menú si hacemos click derecho
-          con el ratón */
-          $(document).bind("auxclick", function(e){
-            if (e.button == 1) {
-              $("#menu").css({'display':'block', 'left':e.pageX, 'top':e.pageY});
-              return false;
-            }
-          });
-            
-            
-          //cuando hagamos click, el menú desaparecerá
-          $(document).click(function(e){
-            if(e.button == 0){
-              $("#menu").css("display", "none");
-            }
-          });
-            
-          //si pulsamos escape, el menú desaparecerá
-          $(document).keydown(function(e){
-            if(e.keyCode == 27){
-              $("#menu").css("display", "none");
-            }
-          });
-            
-          //controlamos los botones del menú
-          $("#menu").click(function(e){
-                  
-            // El switch utiliza los IDs de los <li> del menú
-            switch(e.target.id){
-              case "copiar":
-                alert("copiado!");
-                break;      
-              case "mover":
-                alert("movido!");
-                break;
-              case "eliminar":
-                alert("eliminado!");
-                break;
-            }
-                  
-          });                   
-    });    
-  </script>
 </body>
 </html>
